@@ -9,41 +9,10 @@ describe('TouchPoint Type generation test', function () {
   it('should return Upcoming when client has no valid clientTouchedAt value', function () {
     const clientData = {
       clientTouchedAt: null,
-      ClientSegment: {
-        frequency: 'Monthly'
-      }
+      frequency: 'Monthly'
     }
 
     assert.equal(touchPoint.calculateTouchPointType(clientData), 'Upcoming')
-  })
-
-  it('should return None when client has no valid clientTouchedAt value but frequency is None', function () {
-    const clientData = {
-      clientTouchedAt: null,
-      ClientSegment: {
-        frequency: 'None'
-      }
-    }
-
-    assert.equal(touchPoint.calculateTouchPointType(clientData), 'None')
-  })
-
-  it('should return None when client has no valid ClientSegment value', function () {
-    const clientData = {
-      clientTouchedAt: null,
-      ClientSegment: null
-    }
-
-    assert.equal(touchPoint.calculateTouchPointType(clientData), 'None')
-  })
-
-  it('should return None when client has no valid ClientSegment value even it has valid clientTouchedAt value', function () {
-    const clientData = {
-      clientTouchedAt: '2020-09-15 16:14:20',
-      ClientSegment: null
-    }
-
-    assert.equal(touchPoint.calculateTouchPointType(clientData), 'None')
   })
 
   it('should return the right statuses when client has Monthly frequency', function () {
@@ -66,9 +35,7 @@ describe('TouchPoint Type generation test', function () {
     dates.forEach((date, i) => {
       const clientData = {
         clientTouchedAt: date,
-        ClientSegment: {
-          frequency: 'Monthly'
-        }
+        frequency: 'Monthly'
       }
       assert.equal(
         touchPoint.calculateTouchPointType(clientData),
@@ -104,9 +71,7 @@ describe('TouchPoint Type generation test', function () {
     dates.forEach((date, i) => {
       const clientData = {
         clientTouchedAt: date,
-        ClientSegment: {
-          frequency: 'Quarterly'
-        }
+        frequency: 'Quarterly'
       }
       assert.equal(
         touchPoint.calculateTouchPointType(clientData),
@@ -137,9 +102,7 @@ describe('TouchPoint Type generation test', function () {
     dates.forEach((date, i) => {
       const clientData = {
         clientTouchedAt: date,
-        ClientSegment: {
-          frequency: 'Annual'
-        }
+        frequency: 'Annual'
       }
       assert.equal(
         touchPoint.calculateTouchPointType(clientData),
