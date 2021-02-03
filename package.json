@@ -1,6 +1,6 @@
 {
   "name": "tiny-period-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight component to check for dates in Annual, Quarterly, Monthly periods.",
   "main": "index.js",
   "scripts": {
