@@ -16,6 +16,12 @@ Just go to your project folder and use the good old:
 ```sh
 $ npm i tiny-period-checker
 ```
+Then require it in your app:
+```js
+const tpc = require('tiny-period-checker')
+```
+
+
 ### About the package
 
 The purpose of the package itself if we use it as a whole tool is very specific but the problem it solves could be very usual in the relation of customer interactions or touchpoints. However, I found out during intensively checking StackOverflow for proper solutions that maybe some of its functions could be useful in more global use cases when someone has to check periods in time.
@@ -31,7 +37,7 @@ But first we need to clarify what is a touchpoint:
 
 #### What it does actually
 
- With tiny-period-checker we can calculate if a client needs to be contacted soon since it has been contacted (in the code we use the 'clientTouchedAt' property) in the previous period but not in the current one ('Upcoming'), or already reached in the current period ('Done') or it is 'Missed' since it has not been touched in the previous period nor in the current one. The periods (in the code we call them 'frequency') could be 'Monthly', 'Quarterly', and 'Anual'. 
+ With tiny-period-checker we can calculate if a client needs to be contacted soon since it has been contacted (in the code we use the 'clientTouchedAt' property) in the previous period but not in the current one ('Upcoming'), or already reached in the current period ('Done') or it is 'Missed' since it has not been touched in the previous period nor in the current one. The periods (in the code we call them 'frequency') could be 'Monthly', 'Quarterly', and 'Annual'. 
  
  ![](assets/Drawing.jpeg)
  
@@ -41,6 +47,25 @@ But first we need to clarify what is a touchpoint:
 
 ### How to use
 
+Basic usage:
+
+```js
+const tpc = require('tiny-period-checker')
+
+const clientData = {
+    clientTouchedAt: '2021-02-03T23:12:53.140Z',  // Could be any format that can be parsed to UTC. If it is null, the result will be automaticaly 'Upcoming'.
+    frequency: 'Monthly'  // Could be Annual, Quarterly, Monthly.
+    }
+
+const type = tpc.calculateTouchPointType(clientData)
+
+console.log(type)   // Possible types are: Missed, Done and Upcoming
+```
+
+Other functions:
+```js
+This section is under construction....
+```
 
 
 ### Notes
